@@ -1,0 +1,313 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #e3f0ff;
+  background-image: repeating-linear-gradient(135deg, #b6e0fe 0 2px, transparent 2px 40px);
+  color: #333;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+header {
+  background: #222;
+  color: white;
+  padding: 1em 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(270deg, #222, #007BFF, #14ABFF, #222);
+  background-size: 600% 600%;
+  animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {background-position:0% 50%}
+  50% {background-position:100% 50%}
+  100% {background-position:0% 50%}
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+header nav a {
+  margin: 0.5em 1em;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+header nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #FFD700;
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+}
+
+header nav a:hover {
+  color: #FFD700;
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+
+section {
+  opacity: 1 !important;
+  transform: none !important;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(20, 171, 255, 0.08);
+  padding: 2em;
+  margin-bottom: 2.5em;
+  margin-top: 2em;
+}
+
+/* Remove bullets for all lists by default */
+section ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* Only show bullets for experience.html */
+.experience-main ul {
+  list-style: disc inside;
+  padding-left: 1.5em;
+  margin-top: 0.5em;
+}
+
+/* Restore normal block display for li in experience */
+.experience-main ul li {
+  display: list-item;
+  align-items: initial;
+  justify-content: initial;
+  margin-bottom: 0.5em;
+}
+
+/* Project list: title and button on same line */
+.projects-list {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.projects-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+  list-style: none;
+}
+
+.project-title {
+  font-weight: bold;
+}
+
+.view-more {
+  background: linear-gradient(90deg, #007BFF 0%, #14ABFF 100%);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 0.15em 0.7em;
+  margin-left: 1em;
+  font-size: 0.85em;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #14abff33;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  outline: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.view-more:hover, .view-more:focus {
+  background: linear-gradient(90deg, #14ABFF 0%, #007BFF 100%);
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px #007BFF55;
+}
+
+.project-details {
+  display: none;
+  margin-top: 0.5em;
+  background: #f0f8ff;
+  border-left: 4px solid #14ABFF;
+  padding: 1em;
+  border-radius: 8px;
+  animation: fadeIn 0.5s;
+}
+
+.highlight-h2 {
+  color: #444;
+  flex: 100%;
+  background: #14ABFF;
+  padding: 0.5%;
+  margin-bottom: 0.1;
+  margin-top:0;
+  box-shadow: 0 0 10px #14ABFF55;
+  letter-spacing: 1px;
+  transition: box-shadow 0.3s;
+}
+
+.highlight-h2 + ul {
+  margin-top: 0; 
+  margin-bottom: 0;
+}
+
+section ul > li h3 {
+  color: #007BFF;
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+section ul > li strong {
+  display: block;
+  margin-bottom: 0.3em;
+  font-size: 1.08em;
+  color: #222;
+}
+
+section ul > li em {
+  display: block;
+  margin-bottom: 0.7em;
+  margin-top: 0.2em;
+  color: #555;
+  font-size: 0.98em;
+  font-style: italic;
+}
+
+a {
+  color: #007BFF;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #FF4500;
+}
+
+button {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+button:hover {
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: 0 4px 16px #007BFF55;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  text-align: center;
+  padding: 1em;
+  background: #222;
+  color: white;
+  position: static;
+  width: 100vw;
+  max-width: 100%;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+  flex-shrink: 0;
+}
+
+h1 {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 0.5em 0;
+  background: linear-gradient(90deg, #007BFF 0%, #14ABFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 2px 2px 8px #0006;
+  transition: text-shadow 0.3s;
+}
+
+.intro-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2em;
+}
+
+.intro-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.intro-content h2 {
+  margin-top: 0;
+  margin-bottom: 0.7em;
+}
+
+.intro-content p {
+  text-align: justify;
+  margin-top: 0;
+}
+
+.profile-pic {
+  width: 20%;
+  height: 20%;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px #007bff22;
+  border: 3px solid #14ABFF;
+  margin-left: 2em;
+  margin-top: 0;
+  align-self: flex-start;
+}
+
+@media (max-width: 700px) {
+  .intro-section {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1em;
+  }
+  .profile-pic {
+    width: 70px;
+    height: 70px;
+    margin-left: 1em;
+    margin-top: 0;
+  }
+  .intro-content {
+    font-size: 0.98em;
+  }
+}
+
