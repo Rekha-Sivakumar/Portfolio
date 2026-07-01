@@ -311,3 +311,31 @@ h1 {
   }
 }
 
+.modal{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.85);
+}
+
+#certificateImg{
+    display:block;
+    max-width:85%;
+    max-height:90%;
+    margin:40px auto;
+    border-radius:10px;
+}
+
+#closeCertificate{
+    position:absolute;
+    top:20px;
+    right:40px;
+    color:white;
+    font-size:40px;
+    cursor:pointer;
+}
+
