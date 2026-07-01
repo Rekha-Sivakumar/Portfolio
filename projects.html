@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects - Rekha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/script.js" defer></script>
 </head>
 <body>
   <header>
     <h1>Projects</h1>
+    <p class="header-tagline">Rekha Sivakumar &middot; Full Stack Developer</p>
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -22,8 +26,44 @@
       <h2 class="highlight-h2">Featured Projects</h2>
       <ul class="projects-list">
         <li>
-          <span class="project-title">Responsive Resume Builder</span>
-          <button class="view-more" data-target="resume-details">View More</button>
+          <div class="project-head">
+            <span class="project-title">AI Quiz Generator<span class="project-badge">NEW</span></span>
+            <button class="view-more" data-target="quiz-details">View More</button>
+          </div>
+          <div class="project-details" id="quiz-details">
+            <p>
+              A Flask web app that turns any topic or uploaded PDF into an instant multiple-choice quiz using Google's Gemini API.
+              Users enter a topic or upload a PDF, the app generates questions on the fly, and it scores their answers with instant, color-coded feedback and explanations.
+            </p>
+            <p>
+              <strong>Key Features:</strong>
+              <ul>
+                <li>AI-generated quizzes from any topic or PDF content</li>
+                <li>PDF text extraction for quiz generation</li>
+                <li>Instant scoring with percentage badge and correct/incorrect breakdown</li>
+                <li>Graceful fallback and error handling when the AI service is unavailable</li>
+                <li>Deployed and live on Render</li>
+              </ul>
+            </p>
+            <ul class="tech-tags">
+              <li>Python</li>
+              <li>Flask</li>
+              <li>Gemini API</li>
+              <li>Jinja2</li>
+              <li>Bootstrap</li>
+              <li>PyPDF2</li>
+            </ul>
+            <p class="project-links">
+              <a href="https://ai-quiz-web.onrender.com" target="_blank">Live Demo</a> |
+              <a href="https://github.com/Rekha-Sivakumar/ai-quiz-web" target="_blank">GitHub Repo</a>
+            </p>
+          </div>
+        </li>
+        <li>
+          <div class="project-head">
+            <span class="project-title">Responsive Resume Builder</span>
+            <button class="view-more" data-target="resume-details">View More</button>
+          </div>
           <div class="project-details" id="resume-details">
             <p>
               A web-based application that allows users to easily create, preview, and download professional resumes in real time.
@@ -39,16 +79,23 @@
                 <li>User-friendly form for entering all resume sections</li>
                 <li>Multiple template options for different styles</li>
               </ul>
-              <strong>Technologies Used:</strong> HTML, CSS, JavaScript<br>
-            </p>              
+            </p>
+            <ul class="tech-tags">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+            <p class="project-links">
               <a href="https://rekha-sivakumar.github.io/RESUME-BUILDER/" target="_blank">Live Demo</a> |
               <a href="https://github.com/Rekha-Sivakumar/RESUME-BUILDER/" target="_blank">GitHub Repo</a>
-
+            </p>
           </div>
         </li>
         <li>
-          <span class="project-title">Basic Calculator</span>
-          <button class="view-more" data-target="calc-details">View More</button>
+          <div class="project-head">
+            <span class="project-title">Basic Calculator</span>
+            <button class="view-more" data-target="calc-details">View More</button>
+          </div>
           <div class="project-details" id="calc-details">
             <p>
               A user-friendly desktop calculator built with Python and Tkinter.
@@ -64,15 +111,21 @@
                 <li>Percentage, π (Pi), e (Euler's Number)</li>
                 <li>Scientific and engineering notation</li>
               </ul>
-              <strong>Technologies Used:</strong> Python, Tkinter<br>
-              
             </p>
-            <a href="https://github.com/Rekha-Sivakumar/Basic-Calculator-.git" target="_blank">GitHub Repo</a>
+            <ul class="tech-tags">
+              <li>Python</li>
+              <li>Tkinter</li>
+            </ul>
+            <p class="project-links">
+              <a href="https://github.com/Rekha-Sivakumar/Basic-Calculator-.git" target="_blank">GitHub Repo</a>
+            </p>
           </div>
         </li>
         <li>
-          <span class="project-title">Portfolio Website</span>
-          <button class="view-more" data-target="portfolio-details">View More</button>
+          <div class="project-head">
+            <span class="project-title">Portfolio Website</span>
+            <button class="view-more" data-target="portfolio-details">View More</button>
+          </div>
           <div class="project-details" id="portfolio-details">
             <p>
               A personal portfolio website to showcase my projects, skills, and experience.<br>
@@ -87,11 +140,16 @@
                 <li>About and contact sections</li>
                 <li>Integrated with GitHub for project sourcing</li>
               </ul>
-              <strong>Technologies Used:</strong> HTML, CSS, JavaScript<br>
             </p>
-            <a href="https://rekha-sivakumar.github.io/Portfolio/" target="_blank">Live Demo</a> |
-            <a href="https://github.com/Rekha-Sivakumar/Portfolio/" target="_blank">GitHub Repo</a>
-
+            <ul class="tech-tags">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+            <p class="project-links">
+              <a href="https://rekha-sivakumar.github.io/Portfolio/" target="_blank">Live Demo</a> |
+              <a href="https://github.com/Rekha-Sivakumar/Portfolio/" target="_blank">GitHub Repo</a>
+            </p>
           </div>
         </li>
       </ul>
