@@ -60,3 +60,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// Certificate Popup
+document.addEventListener("DOMContentLoaded", () => {
+
+    const modal = document.getElementById("certificateModal");
+    const img = document.getElementById("certificateImg");
+    const close = document.getElementById("closeCertificate");
+
+    document.querySelectorAll(".view-certificate").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            img.src = button.dataset.image;
+            modal.style.display = "block";
+
+        });
+
+    });
+
+    close.addEventListener("click", () => {
+
+        modal.style.display = "none";
+
+    });
+
+    modal.addEventListener("click", (e) => {
+
+        if(e.target === modal){
+            modal.style.display = "none";
+        }
+
+    });
+
+});
