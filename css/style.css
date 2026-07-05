@@ -625,3 +625,72 @@ h1 {
     text-align: center;
   }
 }
+
+/* ==========================================================================
+   Mobile-Responsive Overrides (Only applies to screens smaller than 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  
+  /* 1. Prevent awkward spacing inside your introductory text paragraphs */
+  .intro-content p {
+    text-align: left !important;
+    text-justify: auto !important;
+    word-spacing: normal !important;
+    line-height: 1.6;
+  }
+
+  /* 2. Force the profile layout to stack vertically instead of side-by-side */
+  .intro-section {
+    display: flex !important;
+    flex-direction: column-reverse !important; /* Puts your profile picture at the top */
+    align-items: center !important;
+    text-align: left !important;
+    padding: 20px 15px !important;
+  }
+
+  /* 3. Style and center your profile picture on mobile layouts */
+  .profile-pic {
+    max-width: 150px !important;
+    height: auto !important;
+    margin-bottom: 20px !important;
+    border-radius: 50% !important;
+  }
+
+  /* 4. Adjust headings so they don't break awkwardly across lines */
+  .intro-content h2 {
+    font-size: 1.8rem !important;
+    text-align: left !important;
+    margin-top: 10px !important;
+  }
+
+  .tagline {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* 5. Clean up the navigation menu lines for smaller phone displays */
+  header nav {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px 15px !important;
+    margin-top: 10px !important;
+  }
+
+  header h1 {
+    font-size: 2rem !important;
+  }
+
+  .header-tagline {
+    font-size: 0.9rem !important;
+    padding: 0 10px !important;
+  }
+
+  /* 6. Clean up rows like stats or buttons to stack nicely if needed */
+  .stats-row, .cta-row, .social-row {
+    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+  }
+}
+
