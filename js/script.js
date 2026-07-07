@@ -1,95 +1,179 @@
-// Scroll to top button (example interactive feature)
-const btn = document.createElement("button");
-btn.innerText = "↑ Top";
-btn.style.position = "fixed";
-btn.style.bottom = "20px";
-btn.style.right = "20px";
-btn.style.padding = "10px";
-btn.style.borderRadius = "50%";
-btn.style.border = "none";
-btn.style.background = "#007BFF";
-btn.style.color = "white";
-btn.style.display = "none";
-btn.style.cursor = "pointer";
-btn.style.zIndex = "1000";
-document.body.appendChild(btn);
-
-btn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 200) {
-    btn.style.display = "block";
-  } else {
-    btn.style.display = "none";
-  }
-});
-
-// Section fade-in on scroll
 document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll("section");
-  const reveal = () => {
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        section.classList.add("visible");
-      }
+
+    /* ==========================
+       Scroll To Top Button
+    ========================== */
+
+    const topBtn = document.createElement("button");
+    topBtn.innerHTML = "↑";
+    topBtn.title = "Back to Top";
+
+    Object.assign(topBtn.style, {
+        position: "fixed",
+        bottom: "20px",
+        right: "20px",
+        width: "50px",
+        height: "50px",
+        borderRadius: "50%",
+        border: "none",
+        background: "#007BFF",
+        color: "#fff",
+        fontSize: "20px",
+        cursor: "pointer",
+        display: "none",
+        zIndex: "1000",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+        transition: "all 0.3s ease"
     });
-  };
-  window.addEventListener("scroll", reveal);
-  reveal();
-});
 
-// View More functionality for projects
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll('.view-more').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const target = document.getElementById(this.dataset.target);
-      if (target.style.display === "block") {
-        target.style.display = "none";
-        this.textContent = "View More";
-      } else {
-        // Hide all other details
-        document.querySelectorAll('.project-details').forEach(d => d.style.display = "none");
-        document.querySelectorAll('.view-more').forEach(b => b.textContent = "View More");
-        // Show this one
-        target.style.display = "block";
-        this.textContent = "View Less";
-      }
+    document.body.appendChild(topBtn);
+
+    topBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     });
-  });
-});
 
-// Certificate Popup
-document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("scroll", () => {
+        topBtn.style.display = window.scrollY > 250 ? "block" : "none";
+    });
 
-    const modal = document.getElementById("certificateModal");
-    const img = document.getElementById("certificateImg");
-    const close = document.getElementById("closeCertificate");
+    /* ==========================
+       Reveal Sections
+    ========================== */
 
-    document.querySelectorAll(".view-certificate").forEach(button => {
+    const sections = document.querySelectorAll("section");
 
-        button.addEventListener("click", () => {
+    const revealSections = () => {
 
-            img.src = button.dataset.image;
-            modal.style.display = "block";
+        sections.forEach(section => {
+
+            const rect = section.getBoundingClientRect();
+
+            if (rect.top < window.innerHeight - 120) {
+                section.classList.add("visible");
+            }
+
+        });
+
+    };
+
+    window.addEventListener("scroll", revealSections);
+    revealSections();
+
+    /* ==========================
+       View More Buttons
+    ========================== */
+
+    document.querySelectorAll(".view-more").forEach(button => {
+
+        button.addEventListener("click", function () {
+
+            const target = document.getElementById(this.dataset.target);
+
+            if (!target) return;
+
+            const isOpen = target.style.display === "block";
+
+            document.querySelectorAll(".project-details").forEach(detail => {
+                detail.style.display = "none";
+            });
+
+            document.querySelectorAll(".view-more").forEach(btn => {
+                btn.textContent = "View More";
+            });
+
+            if (!isOpen) {
+                target.style.display = "block";
+                this.textContent = "View Less";
+            }
 
         });
 
     });
 
-    close.addEventListener("click", () => {
+    /* ==========================
+       Certificate Popup
+    ========================== */
 
-        modal.style.display = "none";
+    const modal = document.getElementById("certificateModal");
+    const modalImg = document.getElementById("certificateImg");
+    const closeBtn = document.getElementById("closeCertificate");
+
+    if (modal && modalImg && closeBtn) {
+
+        document.querySelectorAll(".view-certificate").forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                modalImg.src = button.dataset.image;
+                modal.style.display = "block";
+
+            });
+
+        });
+
+        closeBtn.addEventListener("click", () => {
+
+            modal.style.display = "none";
+
+        });
+
+        modal.addEventListener("click", e => {
+
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+
+        });
+
+        document.addEventListener("keydown", e => {
+
+            if (e.key === "Escape") {
+                modal.style.display = "none";
+            }
+
+        });
+
+    }
+
+    /* ==========================
+       Active Navigation
+    ========================== */
+
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+    document.querySelectorAll("nav a").forEach(link => {
+
+        const href = link.getAttribute("href");
+
+        if (href === currentPage) {
+            link.classList.add("active");
+        }
 
     });
 
-    modal.addEventListener("click", (e) => {
+    /* ==========================
+       Smooth Anchor Scroll
+    ========================== */
 
-        if(e.target === modal){
-            modal.style.display = "none";
-        }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+        anchor.addEventListener("click", function (e) {
+
+            const target = document.querySelector(this.getAttribute("href"));
+
+            if (target) {
+                e.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+
+        });
 
     });
 
